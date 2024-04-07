@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+    
+    <f:metadata>
+        <f:viewParam name="nb" value="#{bean.nombre}"/>
+    </f:metadata>
+    
+    <h:head>
+        <title>Application Affichage 3</title>
+    </h:head>
+    <h:body>
+        <h1>Applicationion affichage_3</h1>
+        Les nombres : <br/>
+        <ui:repeat value="#{bean.nombresSuivants}" var="n" varStatus="status">
+            #{n + 1}#{! status.last ? ', ' : ''}
+        </ui:repeat>
+        <h:form>
+            <h:link outcome="formulaire_3" value="Saisir un autre nombre"/>
+        </h:form>
+    </h:body>
+</html>
