@@ -7,15 +7,16 @@
     <body>
 
         <ui:composition template="./WEB-INF/Template/template_defaut.xhtml">
-            <ui:param name="titre" value="Exercice 1"/>
+
+             <ui:param name="titre" value="Exercice 4"/>
+
             <ui:define name="content">
-                <h1>Application formulaire__1</h1>
-                <h:form>
-                    <h:outputLabel value="Entrez un nombre" for="nombre"/>
-                    <h:inputText id="nombre" value="#{bean.nombre}"/>
-                    <h:message for="nombre"/>
-                    <h:commandButton value="Valider" action="affichage__1"/>
-                </h:form>
+                <h1>Applicationion affichage_4</h1>
+                Les nombres : <br/>
+                <ui:repeat value="#{bean.nombresSuivants}" var="n" varStatus="status">
+                    #{n + 1}#{! status.last ? ', ' : ''}
+                </ui:repeat>
+                <h:link outcome="formulaire__4?nb=#{bean2.nombre}" value="Saisir un autre nombre"/>
             </ui:define>
 
         </ui:composition>
